@@ -1,0 +1,39 @@
+{
+  "name": "northcoders-news-api",
+  "version": "1.0.0",
+  "description": "### Background",
+  "main": "config.js",
+  "scripts": {
+    "test": "mocha ./spec/index.spec.js",
+    "start": "node index.js",
+    "lint": "eslint ./"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.1.4",
+    "body-parser": "^1.15.2",
+    "chai": "^4.1.2",
+    "chance": "^1.0.4",
+    "cors": "^2.8.4",
+    "express": "^4.14.0",
+    "log4js": "^1.0.1",
+    "mocha": "^4.1.0",
+    "moment": "^2.17.0",
+    "mongoose": "^4.7.0",
+    "supertest": "^3.0.0",
+    "underscore": "^1.8.3"
+  },
+  "engines": {
+    "node": "8.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}

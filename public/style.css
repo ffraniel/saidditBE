@@ -1,0 +1,46 @@
+.topSub {
+    text-align: center;
+}
+
+section .container #link {
+    text-decoration: none;
+    color:black;
+}
+
+h1 {
+    color:rgb(12, 54, 65);
+    font-style:honeydew;
+    font-size:3rem;
+    text-align: center;
+}
+
+.routes {
+    border:solid black 2px;
+    border-radius: 10px;
+    padding:1rem;
+    background-color:rgb(172, 172, 172);
+}
+
+.routes .larger {
+    font-size:2rem;
+}
+
+.typeOfRoutes {
+    color:rgb(0, 0, 0);
+}
+
+.routes h4 {
+    font-weight: bold;
+    font-size:1.5rem;
+    color:rgb(218, 59, 20);
+}
+
+.detail {
+    padding-top:2rem;
+}
+
+#smallerRed {
+    font-weight: bold;
+    font-size:1rem;
+    color:rgb(218, 59, 20);
+}

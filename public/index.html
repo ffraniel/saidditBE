@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Reddit Clone RESTful API Backend</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css">
+    </head>
+    <body>
+        <header class="section">
+            <div class="container">
+                <h1 class="title">Saiddit: A Reddit Clone RESTful API Backend</h1>
+                <h4 class="subtitle topSub">Using <strong>NODE.js</strong>, Express.js and MongoDB!</h4>
+                <h5 class="topSub" id="link">By <a href="https://github.com/ffraniel/">Francis Whitehead</a></h5>
+            </div>
+         </header>
+         <section class="main">
+            <div class="routes container">
+                    <h2 class="subtitle larger">Routes</h2>
+                    <p>The below are the available routes on this api.</p>
+                    <br>
+                    <h2 class="typeOfRoutes">GET</h2>
+                    <h4>/api/topics</h4>
+                    <p>Returns all of the topics available</p>
+                    <br>
+                    <h4>/api/topics/:topic/articles</h4>
+                    <p>Return all the articles for a certain topic</p>
+                    <br>
+                    <h4>/api/articles</h4>
+                    <p>Returns all the articles.</p>
+                    <br>
+                    <h4>/api/articles/:articleID</h4> 
+                    </p>If you want to access an individual article you can include the article 
+                     ID and it will return a single article using the params articleID.
+                    </p>
+                    <br>
+                    <h4>/api/articles/:article_id/comments</h4>
+                    <p>Get all the comments for a individual article</p>
+                    <br>
+                    <h4>/api/users/:username</h4>
+                    <p>Returns a JSON object with the profile data for the specified user.</p>
+                    <br>
+                    <h2 class="typeOfRoutes">POST</h2>
+                    <h4>/api/articles/:article_id/comments</h4>
+                    <p>Add a new comment to an article. This route requires a JSON body with a comment key and value pair
+                            e.g: {"comment": "This is my new comment"}</p>
+                    <br>
+                    <h2 class="typeOfRoutes">PUT</h2>
+                    <h4>/api/articles/:article_id</h4>
+                    <p>Increment or Decrement the votes of an article by one. This route requires a vote query of 'up' or 'down'
+                            e.g: https://vast-tundra-92428.herokuapp.com/api/articles/:article_id?vote=up</p>
+                    <br>
+                    <h4>/api/comments/:comment_id</h4>
+                    <p>Increment or Decrement the votes of a comment by one. This route requires a vote query of 'up' or 'down'
+                            e.g: https://vast-tundra-92428.herokuapp.com/api/comments/:comment_id?vote=down</p>
+                    <br>
+                    <h2 class="typeOfRoutes">DELETE</h2>
+                    <h4>/api/comments/:comment_id</h4>
+                    <p>Deletes a comment if the comment was created by the default user, 'Northcoder'. Currently this is the 
+                     only user.
+                    </p>
+                    <br>   
+            </div>
+            <div class="container detail">
+                <h2 class="subtitle">Aim:</h2>
+                <p>As part of creating a reddit clone this RESTful API uses Node JS, Express JS and MongoDB. The project 
+                 stack is entirely Javascript allowing fantastic levels of continuity between the front-end and the back-end. 
+                 This then feeds into a React JS front-end hosted at 
+                 <a href="https://sleepy-atoll-80436.herokuapp.com/">https://sleepy-atoll-80436.herokuapp.com/</a>. The 
+                 database has been populated with seed data.</p>
+                <br>
+                <h2 class="subtitle">Setup</h2>
+                <p>This application was built in Node JS. Express JS provides all the API routes fetching data from the 
+                 MongoDB database hosted on mLabs. Should you wish the current output could be connected to your own 
+                 front-end. Using 'fetch' or the Axios package you can make requests for the data this API provides.</p>
+                <br>
+                <h2 class="subtitle">Versions</h2>
+                <p>
+                <a href="https://nodejs.org/en/">Node.js : 8.3.0</a>  <br>
+                <a href="https://expressjs.com/">Express.js : 4.14.0</a>  <br>
+                <a href="http://mongoosejs.com/">Mongoose": 4.7.0</a>  <br>
+                <a href="https://www.npmjs.com/package/body-parser">Body-parser: 1.15.2</a>  <br>
+                <a href="https://www.npmjs.com/package/cors">Cors: 2.8.4</a> <br>
+                </p>
+                <br>
+                <h2 class="subtitle">Implementation</h2>
+                <p>After seeding the database locally it was connected to an Express server. The Express router is then 
+                 imported to manage the various endpoints. In order to use MongoDB the database is connected to in the 
+                 server.js file. The index.js loads in the express server from the server.js file with all it's configurations
+                 defined. Initially the server.js connected directly to the database but later i added in a config file. 
+                 <!-- Finally Dotenv was installed and used to handle the build config using 'process.env.NODE_ENV'.  -->
+                 <br><br>
+                 In order to carry data i installed body-parser and used it within the express server app to parse request 
+                 bodies into json. I added the routes to a file apiRouter.js using the express.Router(). Then i created a 
+                 controller.js file to manage all the handling of the requests and responses. This includes the management of 
+                 calls to the MongoDB. I tested all the routes using either Chrome and Postman. I made show all the data 
+                 responses were consistent in format, normally sending an object with the 'name' of that response as the 
+                 response object's only key, and the data itself being the value associated with that key. Obviously, there 
+                 were a few exceptions to this rule. And some routes do not return a specific response to be handled. <br><br>
+                 Once i had all the routes working as desired and i had added CORS (Cross-origin resource sharing) i connected
+                 a front-end. Once i was sure this was working i created a Heroku project and pushed this project. After a few
+                 tweaks to the configuration the project was live. <br><br>
+                 Finally i added this static page you see now using express.static to designate a point of call for static
+                 resources.                 
+                </p>
+                <br>
+                <h2 class="subtitle">Learning</h2>
+                <p>Heroku has it's own project configuration variables that can be added to a project. I Initially pushed with 
+                 my local setup and caused a lot of confusion about what process.env it was loading from.<br><br>
+                 This is a simple example of the setup of a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful API</a>.
+                </p>
+                <br>
+            </div>
+         </section>
+            
+    </body>
+</html>
